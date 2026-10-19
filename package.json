@@ -11,7 +11,9 @@
     "start": "node -e \"process.env.SERVE_FRONTEND='1'; import('./server/index.js')\"",
     "preview": "npm run build && npm start",
     "share": "npm run build && concurrently -n app,tunnel -c green,magenta \"npm start\" \"npx --yes localtunnel --port 3001\"",
-    "deploy": "vercel --prod"
+    "deploy": "npm run build && npm run deploy:cf",
+    "deploy:cf": "npx --yes wrangler@latest deploy --config worker/wrangler.toml",
+    "deploy:cf:temp": "npm run build && npx --yes wrangler@latest deploy --config worker/wrangler.toml --temporary"
   },
   "engines": {
     "node": ">=18"

@@ -70,12 +70,6 @@ export default function LoginForm({ onSubmit, loading, error }) {
           .
         </p>
 
-        {typeof window !== 'undefined' && window.location.hostname.includes('vercel.app') && (
-          <p className="form-hint warn-hint">
-            Nota: Spaggiari blocca i server cloud. Se il login fallisce qui, avvia l’app sul
-            PC con <code>npm run dev</code> (funziona in locale).
-          </p>
-        )}
       </form>
     </section>
   );

@@ -2,15 +2,25 @@
 
 Webapp che accede alle API non ufficiali di ClasseViva (Spaggiari), recupera i voti e calcola la **media ponderata** e **semplice** per ogni materia.
 
-## Online
+Creato da **Alessandro Urbani**.
+
+## Online (consigliato)
+
+Host gratuito su **Cloudflare Workers** (Spaggiari blocca Vercel, ma accetta Cloudflare).
+
+```bash
+npm install
+npm run deploy:cf:temp
+```
+
+Poi reclama l’account gratuito dal Claim URL stampato (entro 60 minuti) e ridistribuisci con:
+
+```bash
+npx wrangler login
+npm run deploy
+```
 
 - Codice: https://github.com/AleUrba08/classeviva-medie  
-- Anteprima UI: https://classeviva-medie.vercel.app  
-
-**Importante:** Spaggiari blocca le richieste dai server cloud (Vercel). Il login con i voti
-funziona in **locale** (o con `npm run share`, che espone il tuo PC con un link temporaneo).
-
-Creato da **Alessandro Urbani**.
 
 ## Avvio in locale
 
@@ -24,27 +34,9 @@ npm run dev
 
 Dopo il login vedi la **media ponderata e semplice per ogni materia**.
 
-Condivisione temporanea dal tuo PC (IP di casa, accettato da Spaggiari):
-
-```bash
-npm run share
-```
-
-In produzione locale (un solo processo su porta 3001):
-
-```bash
-npm run build
-npm start
-```
-
-## Credenziali
-
-Usa lo stesso **codice utente** e **password** del portale [web.spaggiari.eu](https://web.spaggiari.eu).
-
-Le credenziali vengono inviate solo al server locale, che le inoltra a Spaggiari per la sessione: **non vengono salvate**.
-
 ## Note
 
 - Progetto non ufficiale e non affiliato a Spaggiari.
 - Vengono considerati solo i voti numerici non annullati.
 - La media ponderata usa il campo `weightFactor` restituito dall’API.
+- Le credenziali non vengono salvate: servono solo per la richiesta.
