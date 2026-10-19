@@ -2,7 +2,12 @@
 
 Webapp che accede alle API non ufficiali di ClasseViva (Spaggiari), recupera i voti e calcola la **media ponderata** e **semplice** per ogni materia.
 
-## Avvio
+## Online
+
+- App: https://classeviva-medie.vercel.app  
+- Codice: https://github.com/AleUrba08/classeviva-medie  
+
+## Avvio in locale
 
 ```bash
 npm install
@@ -12,7 +17,7 @@ npm run dev
 - Frontend: http://localhost:5173  
 - API proxy: http://localhost:3001  
 
-In produzione (un solo processo su porta 3001):
+In produzione locale (un solo processo su porta 3001):
 
 ```bash
 npm run build
