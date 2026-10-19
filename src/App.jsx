@@ -71,6 +71,9 @@ export default function App() {
 
       <footer className="footer">
         <p>
+          Creato da <strong>Alessandro Urbani</strong>
+        </p>
+        <p>
           Non ufficiale · i dati restano sulla tua sessione e non vengono salvati dal server
         </p>
       </footer>

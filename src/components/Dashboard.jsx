@@ -134,6 +134,12 @@ export default function Dashboard({ data, title }) {
         </label>
       </div>
 
+      <h2 className="section-title">Media per materia</h2>
+      <p className="section-sub">
+        Per ogni materia vedi la media ponderata (in evidenza) e quella semplice. Apri una
+        riga per il dettaglio dei voti.
+      </p>
+
       {filteredSubjects.length === 0 ? (
         <p className="empty-state">Nessun voto numerico trovato per questo filtro.</p>
       ) : (

@@ -22,6 +22,9 @@ export default function LoginForm({ onSubmit, loading, error }) {
           Accedi con le credenziali ClasseViva per calcolare automaticamente la media
           ponderata e semplice di ogni materia.
         </p>
+        <p className="creator- cred">
+          Creato da <strong>Alessandro Urbani</strong>
+        </p>
       </div>
 
       <form className="login-panel" onSubmit={handleSubmit}>
@@ -66,6 +69,13 @@ export default function LoginForm({ onSubmit, loading, error }) {
           </a>
           .
         </p>
+
+        {typeof window !== 'undefined' && window.location.hostname.includes('vercel.app') && (
+          <p className="form-hint warn-hint">
+            Nota: Spaggiari blocca i server cloud. Se il login fallisce qui, avvia l’app sul
+            PC con <code>npm run dev</code> (funziona in locale).
+          </p>
+        )}
       </form>
     </section>
   );

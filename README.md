@@ -4,8 +4,13 @@ Webapp che accede alle API non ufficiali di ClasseViva (Spaggiari), recupera i v
 
 ## Online
 
-- App: https://classeviva-medie.vercel.app  
 - Codice: https://github.com/AleUrba08/classeviva-medie  
+- Anteprima UI: https://classeviva-medie.vercel.app  
+
+**Importante:** Spaggiari blocca le richieste dai server cloud (Vercel). Il login con i voti
+funziona in **locale** (o con `npm run share`, che espone il tuo PC con un link temporaneo).
+
+Creato da **Alessandro Urbani**.
 
 ## Avvio in locale
 
@@ -16,6 +21,14 @@ npm run dev
 
 - Frontend: http://localhost:5173  
 - API proxy: http://localhost:3001  
+
+Dopo il login vedi la **media ponderata e semplice per ogni materia**.
+
+Condivisione temporanea dal tuo PC (IP di casa, accettato da Spaggiari):
+
+```bash
+npm run share
+```
 
 In produzione locale (un solo processo su porta 3001):
 

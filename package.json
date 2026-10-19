@@ -10,6 +10,7 @@
     "build": "vite build",
     "start": "node -e \"process.env.SERVE_FRONTEND='1'; import('./server/index.js')\"",
     "preview": "npm run build && npm start",
+    "share": "npm run build && concurrently -n app,tunnel -c green,magenta \"npm start\" \"npx --yes localtunnel --port 3001\"",
     "deploy": "vercel --prod"
   },
   "engines": {

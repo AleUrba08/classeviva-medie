@@ -38,7 +38,10 @@ export default function SubjectCard({ subject }) {
           </p>
         </div>
         <div className="subject-avg">
-          <span className="avg-number">{formatAvg(subject.displayAverage)}</span>
+          <div className="avg-block">
+            <span className="avg-label">Media ponderata</span>
+            <span className="avg-number">{formatAvg(subject.displayAverage)}</span>
+          </div>
           <span className="chevron" data-open={open}>
             ▾
           </span>

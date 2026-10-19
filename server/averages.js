@@ -48,7 +48,6 @@ function mapGrade(g) {
 
 export function computeAverages(grades, periods = []) {
   const countable = (grades ?? []).filter(isCountableGrade);
-
   const bySubject = new Map();
 
   for (const grade of countable) {
@@ -100,10 +99,6 @@ export function computeAverages(grades, periods = []) {
     })
     .sort((a, b) => a.subject.localeCompare(b.subject, 'it'));
 
-  const allGrades = countable;
-  const overallWeighted = averageOf(allGrades);
-  const overallSimple = simpleAverageOf(allGrades);
-
   const periodList =
     periods.length > 0
       ? periods.map((p) => ({
@@ -122,9 +117,9 @@ export function computeAverages(grades, periods = []) {
   return {
     summary: {
       subjectCount: subjects.length,
-      gradeCount: allGrades.length,
-      overallWeightedAverage: overallWeighted,
-      overallSimpleAverage: overallSimple,
+      gradeCount: countable.length,
+      overallWeightedAverage: averageOf(countable),
+      overallSimpleAverage: simpleAverageOf(countable),
     },
     periods: periodList,
     subjects,

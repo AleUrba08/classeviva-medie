@@ -140,6 +140,38 @@ a {
   color: var(--muted);
   font-size: 0.85rem;
   text-align: center;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer strong,
+.creator-cred strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.creator-cred {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.section-title {
+  margin: 0.5rem 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.section-sub {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 40rem;
 }
 
 .hero-login {
@@ -259,6 +291,16 @@ a {
   font-size: 0.82rem;
 }
 
+.form-hint.warn-hint {
+  color: var(--low);
+  line-height: 1.45;
+}
+
+.form-hint code {
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
 .dashboard {
   animation: rise 0.45s ease both;
 }
@@ -357,6 +399,19 @@ a {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+.avg-block {
+  display: grid;
+  justify-items: end;
+  gap: 0.1rem;
+}
+
+.avg-label {
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .avg-number {
