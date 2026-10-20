@@ -10,6 +10,8 @@
   --danger: #ff7a7a;
   --good: #c8f542;
   --ok: #7fd6b0;
+  --warn: #f0d35a;
+  --bad: #e89a9a;
   --low: #ff9b6a;
   --radius: 18px;
   --font-display: 'Bricolage Grotesque', Georgia, serif;
@@ -338,6 +340,22 @@ a {
   color: var(--accent);
 }
 
+.overall-chip.tone-good .overall-value {
+  color: var(--good);
+}
+
+.overall-chip.tone-ok .overall-value {
+  color: var(--ok);
+}
+
+.overall-chip.tone-warn .overall-value {
+  color: var(--warn);
+}
+
+.overall-chip.tone-bad .overall-value {
+  color: var(--bad);
+}
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -429,8 +447,83 @@ a {
   color: var(--ok);
 }
 
+.tone-warn .avg-number {
+  color: var(--warn);
+}
+
+.tone-bad .avg-number {
+  color: var(--bad);
+}
+
 .tone-low .avg-number {
   color: var(--low);
+}
+
+.checkbox-row {
+  display: flex !important;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-row input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(4, 10, 8, 0.72);
+  backdrop-filter: blur(6px);
+  animation: rise 0.25s ease both;
+}
+
+.modal-card {
+  width: min(420px, 100%);
+  padding: 1.35rem 1.4rem 1.25rem;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(160deg, rgba(200, 245, 66, 0.08), transparent 45%),
+    var(--panel);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.modal-card h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.modal-card p {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.modal-primary {
+  margin-top: 0;
+  padding: 0.7rem 1rem;
+  width: auto;
 }
 
 .chevron {

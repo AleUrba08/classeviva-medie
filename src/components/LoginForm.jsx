@@ -1,12 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { loadSavedAuth } from '../lib/credentials.js';
 
 export default function LoginForm({ onSubmit, loading, error }) {
-  const [uid, setUid] = useState('');
-  const [pass, setPass] = useState('');
+  const saved = loadSavedAuth();
+  const [uid, setUid] = useState(saved?.uid ?? '');
+  const [pass, setPass] = useState(saved?.pass ?? '');
+  const [stayLoggedIn, setStayLoggedIn] = useState(Boolean(saved?.stayLoggedIn));
+
+  useEffect(() => {
+    const latest = loadSavedAuth();
+    if (!latest) return;
+    setUid(latest.uid);
+    setPass(latest.pass);
+    setStayLoggedIn(Boolean(latest.stayLoggedIn));
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit({ uid: uid.trim(), pass });
+    onSubmit({ uid: uid.trim(), pass, stayLoggedIn });
   }
 
   return (
@@ -22,17 +33,17 @@ export default function LoginForm({ onSubmit, loading, error }) {
           Accedi con le credenziali ClasseViva per calcolare automaticamente la media
           ponderata e semplice di ogni materia.
         </p>
-        <p className="creator- cred">
+        <p className="creator-cred">
           Creato da <strong>Alessandro Urbani</strong>
         </p>
       </div>
 
-      <form className="login-panel" onSubmit={handleSubmit}>
+      <form className="login-panel" onSubmit={handleSubmit} autoComplete="on">
         <label>
           <span>Codice utente</span>
           <input
             type="text"
-            name="uid"
+            name="username"
             autoComplete="username"
             placeholder="es. S1234567A"
             value={uid}
@@ -46,7 +57,7 @@ export default function LoginForm({ onSubmit, loading, error }) {
           <span>Password</span>
           <input
             type="password"
-            name="pass"
+            name="password"
             autoComplete="current-password"
             placeholder="••••••••"
             value={pass}
@@ -54,6 +65,16 @@ export default function LoginForm({ onSubmit, loading, error }) {
             required
             disabled={loading}
           />
+        </label>
+
+        <label className="checkbox-row">
+          <input
+            type="checkbox"
+            checked={stayLoggedIn}
+            onChange={(e) => setStayLoggedIn(e.target.checked)}
+            disabled={loading}
+          />
+          <span>Rimani collegato su questo dispositivo</span>
         </label>
 
         {error && <p className="form-error" role="alert">{error}</p>}
@@ -69,7 +90,6 @@ export default function LoginForm({ onSubmit, loading, error }) {
           </a>
           .
         </p>
-
       </form>
     </section>
   );

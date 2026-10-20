@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import SubjectCard from './SubjectCard.jsx';
+import { avgTone } from '../lib/avgTone.js';
 
 function formatAvg(value) {
   if (value === null || value === undefined) return '—';
@@ -102,7 +103,7 @@ export default function Dashboard({ data, title }) {
           </p>
         </div>
 
-        <div className="overall-chip">
+        <div className={`overall-chip tone-${avgTone(filteredOverall.weighted)}`}>
           <span className="overall-label">Media ponderata</span>
           <strong className="overall-value">{formatAvg(filteredOverall.weighted)}</strong>
           <span className="overall-sub">

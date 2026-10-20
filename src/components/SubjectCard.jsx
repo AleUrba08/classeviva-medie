@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { avgTone } from '../lib/avgTone.js';
 
 function formatAvg(value) {
   if (value === null || value === undefined) return '—';
@@ -9,13 +10,6 @@ function formatDate(iso) {
   if (!iso) return '';
   const [y, m, d] = iso.split('-');
   return `${d}/${m}/${y}`;
-}
-
-function avgTone(value) {
-  if (value === null || value === undefined) return 'neutral';
-  if (value >= 8) return 'good';
-  if (value >= 6) return 'ok';
-  return 'low';
 }
 
 export default function SubjectCard({ subject }) {

@@ -1,6 +1,7 @@
 name = "classeviva-medie"
 main = "spaggiari-proxy.js"
 compatibility_date = "2024-10-01"
+account_id = "4bcba4c368f7fd7129aa4b312ce8c062"
 
 [assets]
 directory = "../dist"

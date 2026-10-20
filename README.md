@@ -4,16 +4,13 @@ Webapp che accede alle API non ufficiali di ClasseViva (Spaggiari), recupera i v
 
 Creato da **Alessandro Urbani**.
 
-## Online (consigliato)
+## Online
+
+**App:** https://classeviva-medie.elated-cloche.workers.dev  
 
 Host gratuito su **Cloudflare Workers** (Spaggiari blocca Vercel, ma accetta Cloudflare).
 
-```bash
-npm install
-npm run deploy:cf:temp
-```
-
-Poi reclama l’account gratuito dal Claim URL stampato (entro 60 minuti) e ridistribuisci con:
+Per aggiornare il sito dopo modifiche al codice:
 
 ```bash
 npx wrangler login
